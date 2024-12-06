@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="xuathang.css" />
+    <title>Phiếu Xuất Hàng</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Phiếu Xuất Hàng</h1>
+      <div class="info">
+        <p>Số Phiếu Xuất: <span id="soPhieuXuat">222</span></p>
+        <p>
+          Nhân Viên Phụ Trách: <span id="nhanVienPhuTrach">Nguyễn Văn B</span>
+        </p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã Hàng Hóa</th>
+            <th>Tên Hàng Hóa</th>
+            <th>Xuất Xứ</th>
+            <th>Số Lượng</th>
+          </tr>
+        </thead>
+        <tbody id="xuatHangTableBody">
+          <!-- Dữ liệu sẽ được thêm vào đây -->
+        </tbody>
+      </table>
+      <div class="footer">
+        <p>
+          Nhân Viên Phụ Trách Ký Tên: <span id="kyTen">________________</span>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function loadExportReceipts() {
+        const receipts =
+          JSON.parse(localStorage.getItem("exportReceipts")) || [];
+        const tbody = document.getElementById("xuatHangTableBody");
+        tbody.innerHTML = ""; // Xóa nội dung cũ
+
+        receipts.forEach((receipt, index) => {
+          receipt.products.forEach((product) => {
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${product.maHH || "N/A"}</td>
+                    <td>${product.tenHH || "N/A"}</td>
+                    <td>${product.xuatxu || "N/A"}</td>
+                    <td>${product.soLuong || 0}</td>
+                `;
+            tbody.appendChild(newRow);
+          });
+        });
+      }
+
+      // Tải danh sách phiếu xuất khi trang được tải
+      window.onload = loadExportReceipts;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Nhân Viên</title>
+    <link rel="stylesheet" href="nhanvien.css" />
+    <script src="nhanvien.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quản Lý Nhân Viên</h1>
+      <div class="input-section">
+        <input type="text" id="maNV" placeholder="Mã Nhân Viên" />
+        <input type="text" id="tenNV" placeholder="Tên Nhân Viên" />
+        <input type="text" id="sdt" placeholder="SĐT" />
+        <input type="text" id="diaChi" placeholder="Địa Chỉ" />
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <input type="date" id="ngaySinh" placeholder="Ngày Sinh" />
+        <input type="number" id="luong" placeholder="Lương" />
+        <button id="themNV">Thêm Nhân Viên</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã NV</th>
+            <th>Tên NV</th>
+            <th>SĐT</th>
+            <th>Địa Chỉ</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Ngày Sinh</th>
+            <th>Lương</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+          <!-- Dữ liệu nhân viên sẽ được hiển thị ở đây -->
+        </tbody>
+      </table>
+      <div class="buttons">
+        <button id="lamMoi">Làm Mới</button>
+      </div>
+    </div>
+  </body>
+</html>
